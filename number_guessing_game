@@ -1,0 +1,32 @@
+import random
+# secret number
+secret_num = random.randint(1,10)
+#list for storing the inputs
+guesses=[]
+
+def game():
+    while (len(guesses)<3):
+        # take input from user
+        user_input = int(input("enter number between 1 & 10  "))
+        #compare user input with the secet num
+        if(user_input==secret_num):
+             print("Bingo {} is the correct guess".format(secret_num))
+             break
+        elif user_input>secret_num:
+             print("Try something lower")
+        elif user_input < secret_num :
+             print("Try again with a higher number")
+        elif user_input<secret_num :
+            print("Try again with a higher number")
+        guesses.append(user_input)
+    else:
+        print("Computer's choice was{}".format(secret_num))
+    play_again = input("Enter Y to play again N to exit  ")
+    if play_again.lower()=='y':
+        game()
+    else:
+        print("bye !")
+game()
+
+
+
