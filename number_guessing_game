@@ -4,6 +4,7 @@ secret_num = random.randint(1,10)
 #list for storing the inputs
 guesses=[]
 
+
 def game():
     while (len(guesses)<3):
         try:
@@ -31,6 +32,7 @@ def game():
     else:
         print("bye !")
 game()
+
 
 
 
