@@ -1,20 +1,20 @@
 import random
 import os
 
-#make a list
-words = ['apple','kiwi','mango','guava','apricot','grapes','orange']
-#lists for storing good and bad guesses
+# make a list
+words = ['apple', 'kiwi', 'mango', 'guava', 'apricot', 'grapes', 'orange']
+# lists for storing good and bad guesses
 good_guess = []
 bad_guess = []
-#select a random choice from the list
+# select a random choice from the list
 secret_word = random.choice(words)
-while (len(bad_guess)<7 and good_guess != secret_word):
+while (len(bad_guess) < 7 and len(good_guess) != len(secret_word)):
     for letter in secret_word:
         if letter in good_guess:
-            print(letter,end=' ')
+            print(letter, end =' ')
 
         else:
-            print('_',end=' ')
+            print('_', end=' ')
         os.system('clear')
 
     print('')
@@ -33,15 +33,13 @@ while (len(bad_guess)<7 and good_guess != secret_word):
 
     if guess in secret_word:
         good_guess.append(guess)
-        if good_guess==secret_word:
+        if len(good_guess) == len(secret_word):
             print("you win {} was the correct word".format(secret_word))
             break
     else:
         bad_guess.append(guess)
 else:
-    print('\n')
     print("you didn't guess it correct {} was my secret word".format(secret_word))
-
 
 
 
