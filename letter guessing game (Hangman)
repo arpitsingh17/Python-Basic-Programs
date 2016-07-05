@@ -1,5 +1,6 @@
 import random
 import os
+
 #make a list
 words = ['apple','kiwi','mango','guava','apricot','grapes','orange']
 #lists for storing good and bad guesses
@@ -14,7 +15,7 @@ while (len(bad_guess)<7 and good_guess != secret_word):
 
         else:
             print('_',end=' ')
-            os.system('cls')
+        os.system('clear')
 
     print('')
     print('Strikes {}/7'.format(len(bad_guess)))
@@ -38,7 +39,9 @@ while (len(bad_guess)<7 and good_guess != secret_word):
     else:
         bad_guess.append(guess)
 else:
+    print('\n')
     print("you didn't guess it correct {} was my secret word".format(secret_word))
+
 
 
 
