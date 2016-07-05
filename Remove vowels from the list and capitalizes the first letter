@@ -1,0 +1,20 @@
+# this program removes all the vowels in the predefined list and capitalizes the first letter.
+words = ["arpit", "singh", "bittu", "sakshi", "somya"]
+output= []
+vowels = list('aeiou')
+
+for word in words:
+	state_list = list(word.lower())
+	for vowel in vowels:
+		while True:
+			try:
+				state_list.remove(vowel)
+			except:
+				break
+	output.append(''.join(state_list).capitalize())
+print(output)
+	
+	
+			
+		    
+
