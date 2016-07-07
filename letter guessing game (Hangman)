@@ -1,6 +1,12 @@
 import random
 import os
 
+def clear():
+    if os.name== 'nt':
+        os.system("cls")
+    else:
+        os.system("clear")
+
 # make a list
 words = ['apple', 'kiwi', 'mango', 'guava', 'apricot', 'grapes', 'orange']
 # lists for storing good and bad guesses
@@ -8,19 +14,28 @@ good_guess = []
 bad_guess = []
 # select a random choice from the list
 secret_word = random.choice(words)
-while (len(bad_guess) < 7 and len(good_guess) != len(secret_word)):
+def draw():
+    clear()
+    print('\n')
+    print("Bad Guesses")
+    for letter in bad_guess:
+        print(letter, end='')
+    print('\n')
+    print("Word")
     for letter in secret_word:
         if letter in good_guess:
-            print(letter, end =' ')
+            print(letter, end=' ')
 
         else:
             print('_', end=' ')
-        os.system('clear')
+while (len(bad_guess) < 7 and len(good_guess) != len(secret_word)):
+    draw()
+        #clear()
 
     print('')
-    print('Strikes {}/7'.format(len(bad_guess)))
+    print('Strikes {}/{}'.format(len(bad_guess),len(secret_word)))
     print('')
-    guess = input("Guess a fruit and start entering one alphabet at a time  _").lower()
+    guess = input("Guess a fruit and start entering one alphabet at a time  _")
     if len(guess) != 1:
         print("you can only enter one letter at a time")
         continue
@@ -32,10 +47,10 @@ while (len(bad_guess) < 7 and len(good_guess) != len(secret_word)):
         continue
 
     if guess in secret_word:
-        good_guess.append(guess)
-        if len(good_guess) == len(secret_word):
-            print("you win {} was the correct word".format(secret_word))
-            break
+       good_guess.append(guess)
+       if len(good_guess) == len(secret_word):
+           print("you win {} was the correct word".format(secret_word))
+           break
     else:
         bad_guess.append(guess)
 else:
