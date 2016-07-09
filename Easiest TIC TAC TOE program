@@ -1,0 +1,110 @@
+import os
+
+
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+
+def draw_board():
+    print('')
+    print("Type the block number to mark your X or O \n")
+    print(board[0], '|', board[1], '|', board[2])
+    print('---------')
+    print(board[3], '|', board[4], '|', board[5])
+    print('---------')
+    print(board[6], '|', board[7], '|', board[8])
+
+
+def check(char, spot1, spot2, spot3):
+    if board[spot1] == char and board[spot2] == char and board[spot3] == char:
+        return True
+
+
+def checkall(char):
+    if check(char, 0, 1, 2):
+        return True
+    if check(char, 3, 4, 5):
+        return True
+    if check(char, 6, 7, 8):
+        return True
+    if check(char, 0, 3, 6):
+        return True
+    if check(char, 1, 4, 7):
+        return True
+    if check(char, 2, 5, 8):
+        return True
+    if check(char, 0, 4, 8):
+        return True
+    if check(char, 2, 4, 6):
+        return True
+
+
+x = 0
+while (x<8):
+
+    clear()
+    draw_board()
+
+    user1 = input("1st player's turn")
+    try:
+        int(user1)
+    except ValueError:
+        print("Enter a valid integer btw 0 - 8")
+        continue
+
+    if board[user1] != 'X' and board[user1] != 'O':
+        board[user1] = 'X'
+        clear()
+        draw_board()
+        x+=1
+
+        if checkall('X'):
+            print("---player 1  wins---")
+            break
+		
+     
+        user2 = input("2nd players turn")
+        try:
+            int (user2)
+        except ValueError:
+                print("Enter a valid integer btw 0 - 8")
+                
+        if board[user2] != 'X' and board[user2] != 'O':
+            board[user2] = 'O'
+            x+=1
+            clear()
+
+            draw_board()
+            if checkall('O'):
+                print("---player 2  wins---")
+                break
+
+
+    else:
+        print("try with a different spot")
+        continue
+else:
+    print("its a draw")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
