@@ -1,0 +1,34 @@
+"""Following lines of codes consists of two methods and there time difference"""
+
+import timeit
+############# Method 1 ##################
+lis = []
+start = timeit.timeit()
+for i in range(2000,3000,1):
+
+    if i %7==0 and i%5 !=0:
+        lis.append(i)
+
+end = timeit.timeit()
+print "lis", lis
+print "time: ",start-end
+
+#time:  0.000719998818463
+
+########################## Method 2 ###################
+def prod():
+    start = timeit.timeit()
+    lis = []
+    for i in range(2002,3000,7):
+        if i %7==0 and i%5 !=0:
+            lis.append(i)
+    print lis
+    end = timeit.timeit()
+
+    print "time: ",start-end
+prod()
+# time:  0.000181743291498
+
+
+
+
