@@ -1,0 +1,6 @@
+def is_multiple(m,n):
+	return m%n==0
+
+if __name__=='__main__':
+	a,b =raw_input("input two numbers seperated with a space").split()
+	print("is multiple ?",is_multiple(int(a),int(b)))
